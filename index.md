@@ -13,10 +13,7 @@ git version 2.17.1
   - A partner for the advanced exercises
 
 ## Overview
-- Setup
-  - Exercise: [Configure Git]({{ "ex-configure" | relative_url }})
-  - Exercise: [Configure SSH Keys]({{ "ex-ssh-keys" | relative_url }})
-- Exercise: [Create a project in GitLab]({{ "ex-create-project" | relative_url }})
+- Exercise: [Configure Git]({{ "ex-configure" | relative_url }})
 - Exercise: [Git Basics]({{ "ex-git-basics" | relative_url }})
 - Exercise: [Advanced Git Workflows]({{ "ex-advanced-workflows" | relative_url }})
 
