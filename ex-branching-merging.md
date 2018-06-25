@@ -242,7 +242,7 @@ You get the helpful URL again from the remote, but note that this time it says "
 
 See how just pushing to the branch updated the Merge Request. GitLab sees the changes, and notes them in the discussion and the diff now relects the current state of `README.md` in the contributor's `add-greeting` branch.
 
-## MAINTAINER: Merge
+## MAINTAINER: Merge the request
 
 Click the grean "Merge" button on the Merge Request page. The `master` branch in the maintainer's GitLab repository will now include the two commits that the contributor made
 
@@ -289,7 +289,7 @@ To {{ site.gitlabhost }}:its-inf-net/advanced.git
    3e99c8c..2cfabd4  master -﹥ master
 ```
 
-It is a good practice to remove the `add-greeting` branch from the local and remote repositories. Remember that branching is cheap and easy woth git, so there's no reason to keep them around, or reuse them.
+It is a good practice to remove the `add-greeting` branch from the local and remote repositories. Remember that branching is cheap and easy with git, so there's no reason to keep them around or reuse them.
 
 ```terminal
 $ git branch -d add-greeting
