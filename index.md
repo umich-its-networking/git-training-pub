@@ -15,5 +15,6 @@ git version 2.17.1
 ## Overview
 - Exercise: [Configure Git]({{ "ex-configure" | relative_url }})
 - Exercise: [Git Basics]({{ "ex-git-basics" | relative_url }})
-- Exercise: [Advanced Git Workflows]({{ "ex-advanced-workflows" | relative_url }})
+- Advanced Workflows
+  - Exercise: [Branching and Merging]({{ "ex-branching-merging" | relative_url }})
 

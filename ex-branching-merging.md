@@ -1,5 +1,5 @@
 ---
-title: Advanced Git Workflows
+title: Branching and Merging
 layout: page
 ---
 
