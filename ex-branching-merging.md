@@ -238,7 +238,7 @@ To {{ site.gitlabhost }}:its-inf-net/advanced.git
 
 You get the helpful URL again from the remote, but note that this time it says "View merge request for add-greeting", and that the URL is to the Merge Request you created last time. Since you still have the Merge Request page open, just go back to your browser and refresh.
 
-BOTH: Take another look at the Merge Request page
+## BOTH: Take another look at the Merge Request page
 
 See how just pushing to the branch updated the Merge Request. GitLab sees the changes, and notes them in the discussion and the diff now relects the current state of `README.md` in the contributor's `add-greeting` branch.
 
