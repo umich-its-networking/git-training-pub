@@ -160,7 +160,7 @@ $ git commit -a -m 'Add greeting to maintainer'
  1 file changed, 1 insertion(+)
 ```
 
-Push the `add-greeting` branch to your `origin` remote. The 
+Push the `add-greeting` branch to your `origin` remote. The `-u` flag tell git to "track" this remote branch for the current local branch. You only need to use this flag for the first push, you if you do a plain `git push` with this local branch in the future, git will know that you want to push to `add-greeting` on the `origin` remote.
 
 ```terminal
 $ git push -u origin add-greeting
@@ -179,7 +179,7 @@ To {{ site.gitlabhost }}:its-inf-net/advanced.git
 Branch 'add-greeting' set up to track remote branch 'add-greeting' from 'origin'.
 ```
 
-Those lines that begin with "remote: " are interesting. They are messages from the remote repository. GitLab has a feature that sets this message when you push a branch to your repository. In this case it is giving you a link to follow in order to start a Merge Request.
+Those lines in the output that begin with "remote: " are interesting. They are messages from the remote repository. GitLab has a feature that sets this message when you push a branch to your repository. In this case it is giving you a link to follow in order to start a Merge Request.
 
 *A note on terminology:* GitLab calls this a "Merge Request"; GitHub call it's version of this proces a "Pull Request". They are bascially the same thing, but each platform has its own features and other things that it does with the process. It is also worth noting that this is not a native git feature, but one that platforms like GitLab, GitHub and BitBucket offer to strewamline the workflow.
 
