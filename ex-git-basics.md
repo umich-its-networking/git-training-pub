@@ -85,7 +85,7 @@ Enumerating objects: 3, done.
 Counting objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 251 bytes | 251.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
-To {{ gitlabhost }}:[username]/basics.git
+To {{ site.gitlabhost }}:[username]/basics.git
  * [new branch]      master -﹥ master
 ```
 
