@@ -68,7 +68,7 @@ Use `git fetch` to update your local repository's history of the new remote.
 
 ```terminal
 $ git fetch upstream
-From gitlab.aws.vdc.it.umich.edu:steinhof/advanced
+From << site.gitlabhost }}:[username]/advanced
  * [new branch]      master     -﹥ upstream/master
 ```
 
@@ -104,7 +104,7 @@ Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Writing objects: 100% (3/3), 269 bytes | 269.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
-To gitlab.aws.vdc.it.umich.edu:steinhof/advanced.git
+To {{ site.gitlabhost }}:[username]/advanced.git
    3e99c8c..50dad14  master -﹥ master
 ```
 
@@ -117,7 +117,7 @@ $ git fetch upstream
 remote: Counting objects: 3, done.
 remote: Total 3 (delta 0), reused 0 (delta 0)
 Unpacking objects: 100% (3/3), done.
-From gitlab.aws.vdc.it.umich.edu:steinhof/advanced
+From {{ site.gitlabhost }}:[username]/advanced
    3e99c8c..50dad14  master     -﹥ upstream/master
 $ git merge upstream/master
 Updating 3e99c8c..50dad14
@@ -225,9 +225,9 @@ Writing objects: 100% (3/3), 315 bytes | 315.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
 remote:
 remote: View merge request for new-content:
-remote:   https://gitlab.aws.vdc.it.umich.edu/steinhof/advanced/merge_requests/1
+remote:   {{ site.gitlaburl }}[username]/advanced/merge_requests/1
 remote:
-To gitlab.aws.vdc.it.umich.edu:its-inf-net/advanced.git
+To {{ site.gitlabhost }}:its-inf-net/advanced.git
    355165e..c07ffa7  new-content -﹥ new-content
 ```
 
@@ -249,7 +249,7 @@ remote: Counting objects: 7, done.
 remote: Compressing objects: 100% (5/5), done.
 remote: Total 7 (delta 1), reused 0 (delta 0)
 Unpacking objects: 100% (7/7), done.
-From gitlab.aws.vdc.it.umich.edu:steinhof/advanced
+From {{ site.gitlabhost }}:[username]/advanced
    ebc61d8..2cfabd4  master     -﹥ origin/master
 Updating ebc61d8..2cfabd4
 Fast-forward
@@ -268,7 +268,7 @@ $ git fetch upstream
 remote: Counting objects: 1, done.
 remote: Total 1 (delta 0), reused 0 (delta 0)
 Unpacking objects: 100% (1/1), done.
-From gitlab.aws.vdc.it.umich.edu:steinhof/advanced
+From {{ site.gitlabhost }}:[username]/advanced
    ebc61d8..2cfabd4  master     -﹥ upstream/master
 $ git merge upstream/master
 Updating ebc61d8..2cfabd4
@@ -280,7 +280,7 @@ Enumerating objects: 1, done.
 Counting objects: 100% (1/1), done.
 Writing objects: 100% (1/1), 280 bytes | 280.00 KiB/s, done.
 Total 1 (delta 0), reused 0 (delta 0)
-To gitlab.aws.vdc.it.umich.edu:its-inf-net/advanced.git
+To {{ site.gitlabhost }}:its-inf-net/advanced.git
    3e99c8c..2cfabd4  master -﹥ master
 ```
 

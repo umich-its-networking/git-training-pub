@@ -11,7 +11,7 @@ layout: page
 
 ## Clone the repo
 
-Using the SSH connection string from your repository, create
+Using the SSH connection string from your repository, create a clone of your repository on your workstation.
 
 ```terminal
 $ git clone git@{{ site.gitlabhost }}:[username]/basics.git
@@ -85,7 +85,7 @@ Enumerating objects: 3, done.
 Counting objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 251 bytes | 251.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
-To {{ gitlabhost }}:steinhof/basics.git
+To {{ gitlabhost }}:[username]/basics.git
  * [new branch]      master -﹥ master
 ```
 
@@ -189,7 +189,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 310 bytes | 310.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
-To gitlab.aws.vdc.it.umich.edu:steinhof/basics.git
+To {{ site.gitlabhost }}:[username]/basics.git
    4144c9b..fee706e  master -﹥ master
 ```
 
