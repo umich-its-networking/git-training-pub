@@ -211,4 +211,4 @@ Several of the git commands above produce output that suggest other commands. It
 
 ## Explore changes in the web interface
 
-
+Take a look at the GitLab web interace for your project. You'll be able to see the current state of the `master` branch, and will be able to look at the history of the commits you made.

@@ -9,7 +9,7 @@ layout: page
 $ git --version
 git version 2.17.1
 ```
-  - An account on a GitLab server (for example: [{{ site.gitlaburl }}]({{ site.gitlaburl }}))
+  - An account on a GitLab server ([{{ site.gitlaburl }}]({{ site.gitlaburl }}))
   - A partner for the advanced exercises
 
 ## Overview
