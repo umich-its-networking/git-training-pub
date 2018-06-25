@@ -30,11 +30,11 @@ Hello World
 
 ## CONTRIBUTOR: Fork the repository
 
-Fork the Maintainer's repository with the GitLab interface. See the [How to fork a project]({{ site.gitlaburl }}help/gitlab-basics/fork-project.md) documentation. After doing this you should have you own copy of the reposity at {{ site.gitlaburl }}[username]/advanced.git
+Fork the maintainer's repository with the GitLab interface. See the [How to fork a project]({{ site.gitlaburl }}help/gitlab-basics/fork-project.md) documentation. After doing this you should have you own copy of the reposity at {{ site.gitlaburl }}[username]/advanced.git
 
 ## BOTH: Clone your respective repository
 
-The Maintainer should clone his/her repsoitory, and the Contributor should clone the respitory from his/her fork.
+The maintainer should clone his/her repsoitory, and the contributor should clone the respitory from his/her fork.
 
 ```terminal
 $ git clone git@{{ site.gitlabhost }}:[username]/advanced.git
@@ -44,7 +44,7 @@ remote: Total 3 (delta 0), reused 0 (delta 0)
 Receiving objects: 100% (3/3), done.
 ```
 
-Each player should have a clone of the repository now, both should contain the `README.md` file created by the Maintainer in the step above.
+Each player should have a clone of the repository now, both should contain the `README.md` file created by the maintainer in the step above.
 
 ## CONTRIBUTOR: Add a remote for the Maintainer's repository
 
@@ -68,7 +68,7 @@ Use `git fetch` to update your local repository's history of the new remote.
 
 ```terminal
 $ git fetch upstream
-From << site.gitlabhost }}:[username]/advanced
+From {{ site.gitlabhost }}:[username]/advanced
  * [new branch]      master     -﹥ upstream/master
 ```
 
@@ -96,7 +96,7 @@ Changes not staged for commit:
 	modified:   README.md
 
 no changes added to commit (use "git add" and/or "git commit -a")
-$ git commit -a -m 'Add greating to contributor'
+$ git commit -a -m 'Add greeting to contributor'
 [master 50dad14] Added to README
  1 file changed, 1 insertion(+), 1 deletion(-)
 $ git push
@@ -135,14 +135,14 @@ It is a good practice to stay in sync with upstream remotes.
 
 ## CONTRIBUTOR: Create a branch with a change, and push
 
-Create a branch called `new-content` in your local repo.
+Create a branch called `add-greeting` in your local repo.
 
 ```terminal
-$ git checkout -b new-content
-Switched to a new branch 'new-content'
+$ git checkout -b add-greeting
+Switched to a new branch 'add-greeting'
 ```
 
-Edit READNE.md so it looks like this:
+Edit README.md so it looks like this:
 
 ```
 # Git Advanced Workflow
@@ -152,13 +152,18 @@ Hello [Contributor]
 Hello [Maintainer]
 ```
 
-Commit the change and push the `new-content` branch to your `origin` remote.
+Commit the change.
 
 ```terminal
-$ git commit -a -m 'Add greating to maintainer'
-[new-content 355165e] Add greating to maintainer
+$ git commit -a -m 'Add greeting to maintainer'
+[add-greeting 355165e] Add greeting to maintainer
  1 file changed, 1 insertion(+)
-$ git push -u origin new-content
+```
+
+Push the `add-greeting` branch to your `origin` remote. The 
+
+```terminal
+$ git push -u origin add-greeting
 Enumerating objects: 11, done.
 Counting objects: 100% (11/11), done.
 Delta compression using up to 4 threads.
@@ -166,12 +171,12 @@ Compressing objects: 100% (5/5), done.
 Writing objects: 100% (9/9), 780 bytes | 390.00 KiB/s, done.
 Total 9 (delta 1), reused 0 (delta 0)
 remote:
-remote: To create a merge request for new-content, visit:
-remote:   {{ site.gitlaburl }}contributor/advanced/merge_requests/new?merge_request%5Bsource_branch%5D=new-content
+remote: To create a merge request for add-greeting, visit:
+remote:   {{ site.gitlaburl }}contributor/advanced/merge_requests/new?merge_request%5Bsource_branch%5D=add-greeting
 remote:
 To {{ site.gitlabhost }}:its-inf-net/advanced.git
- * [new branch]      new-content -﹥ new-content
-Branch 'new-content' set up to track remote branch 'new-content' from 'origin'.
+ * [new branch]      add-greeting -﹥ add-greeting
+Branch 'add-greeting' set up to track remote branch 'add-greeting' from 'origin'.
 ```
 
 Those lines that begin with "remote: " are interesting. They are messages from the remote repository. GitLab has a feature that sets this message when you push a branch to your repository. In this case it is giving you a link to follow in order to start a Merge Request.
@@ -210,11 +215,11 @@ Hello [Contributor]
 Aloha [Maintainer]
 ```
 
-Commit the change to the `new-content` branch, and push to your remote. (You should still have `new-content` checked out locally, so you shouldn't have to make any changes before running these commands.)
+Commit the change to the `add-greeting` branch, and push to your remote. (You should still have `add-greeting` checked out locally, so you shouldn't have to make any changes before running these commands.)
 
 ```terminal
 $ git commit -a -m 'Fix greeting'
-[new-content c07ffa7] Fix greeting
+[add-greeting c07ffa7] Fix greeting
  1 file changed, 1 insertion(+), 1 deletion(-)
 $ git push
 Enumerating objects: 5, done.
@@ -224,18 +229,18 @@ Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 315 bytes | 315.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
 remote:
-remote: View merge request for new-content:
+remote: View merge request for add-greeting:
 remote:   {{ site.gitlaburl }}[username]/advanced/merge_requests/1
 remote:
 To {{ site.gitlabhost }}:its-inf-net/advanced.git
-   355165e..c07ffa7  new-content -﹥ new-content
+   355165e..c07ffa7  add-greeting -﹥ add-greeting
 ```
 
-You get the helpful URL again from the remote, but note that this time it says "View merge request for new-content", and that the URL is to the Merge Request you created last time. Since you still have the Merge Request page open, just go back to your browser and refresh.
+You get the helpful URL again from the remote, but note that this time it says "View merge request for add-greeting", and that the URL is to the Merge Request you created last time. Since you still have the Merge Request page open, just go back to your browser and refresh.
 
 BOTH: Take another look at the Merge Request page
 
-See how just pushing to the branch updated the Merge Request. GitLab sees the changes, and notes them in the discussion and the diff now relects the current state of `README.md` in the contributor's `new-content` branch.
+See how just pushing to the branch updated the Merge Request. GitLab sees the changes, and notes them in the discussion and the diff now relects the current state of `README.md` in the contributor's `add-greeting` branch.
 
 ## MAINTAINER: Merge
 
@@ -284,17 +289,17 @@ To {{ site.gitlabhost }}:its-inf-net/advanced.git
    3e99c8c..2cfabd4  master -﹥ master
 ```
 
-It is a good practice to remove the `new-content` branch from the local and remote repositories. Remember that branching is cheap and easy woth git, so there's no reason to keep them around, or reuse them.
+It is a good practice to remove the `add-greeting` branch from the local and remote repositories. Remember that branching is cheap and easy woth git, so there's no reason to keep them around, or reuse them.
 
 ```terminal
-$ git branch -d new-content
-Deleted branch new-content (was c07ffa7).
+$ git branch -d add-greeting
+Deleted branch add-greeting (was c07ffa7).
 ```
 
 That command will remove the local repository. There are ways to remove a remote branch with the command line, but they a re very non-intuitive, it's easiest and best to use the web interface to remove those if you can. (You may have noticed the GitLab Merge Request had a checkbox to remove the branch when the request was merged, this is very handy.)
 
 ## BOTH: Wrap up
 
-Now that the contributor's `new-content` branch has been merge and deleted, we're back to a state, in terms of branches, that is the same as when we started.
+Now that the contributor's `add-greeting` branch has been merge and deleted, we're back to a state, in terms of branches, that is the same as when we started.
 
 This may seem like a lot of work, but this workflow is very powerful and it can be useful to follow for even small changes especially if collaborators are working asyncronously and on my projects at once. 
