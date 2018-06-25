@@ -15,10 +15,10 @@ Each of the sections below is labeled for the player who should perform the step
 ## MAINTAINER: Create a repository
 
 Create a project in GitLab
-  - Use the project creation form: [{{ site.gitlaburl }}projects/new]({{ site.gitlaburl }}projects/new).
+  - Use the project creation form: [{{ site.gitlaburl }}projects/new]({{ site.gitlaburl }}projects/new)
   - Call the project `advanced`
-  - For this exercise, create it under your own username, not any group that you may have access to (not everyone will have access to groups).
-  - Set the Visibility Level to "Public".
+  - For this exercise, create it under your own username, not any group that you may have access to (not everyone will have access to groups)
+  - Set the Visibility Level to "Public"
 
 Add a `README.md` file to the repository. You can do this with the GitLab interface (there's an `Add Readme` button) or by following the steps in the [Git Basics]({{ "ex-git-basics" | relative_url }}) exercise. Use the following content:
 
@@ -74,7 +74,7 @@ From {{ site.gitlabhost }}:[username]/advanced
 
 ## MAINTAINER: Make a change to your repository
 
-Make a small change to your README.md file, so the content looks like this:
+Make a small change to your README.md file so the content looks like this:
 
 ```
 # Git Advanced Workflow
@@ -160,7 +160,7 @@ $ git commit -a -m 'Add greeting to maintainer'
  1 file changed, 1 insertion(+)
 ```
 
-Push the `add-greeting` branch to your `origin` remote. The `-u` flag tell git to "track" this remote branch for the current local branch. You only need to use this flag for the first push, you if you do a plain `git push` with this local branch in the future, git will know that you want to push to `add-greeting` on the `origin` remote.
+Push the `add-greeting` branch to your `origin` remote. The `-u` flag tells git to "track" this remote branch for the current local branch. You only need to use this flag for the first push. If you do a plain `git push` with this local branch in the future, git will know that you want to push to `add-greeting` on the `origin` remote.
 
 ```terminal
 $ git push -u origin add-greeting
@@ -181,9 +181,9 @@ Branch 'add-greeting' set up to track remote branch 'add-greeting' from 'origin'
 
 Those lines in the output that begin with "remote: " are interesting. They are messages from the remote repository. GitLab has a feature that sets this message when you push a branch to your repository. In this case it is giving you a link to follow in order to start a Merge Request.
 
-*A note on terminology:* GitLab calls this a "Merge Request"; GitHub call it's version of this proces a "Pull Request". They are bascially the same thing, but each platform has its own features and other things that it does with the process. It is also worth noting that this is not a native git feature, but one that platforms like GitLab, GitHub and BitBucket offer to strewamline the workflow.
+*A note on terminology:* GitLab calls this a "Merge Request"; GitHub calls its version of this proces a "Pull Request". They are bascially the same thing, but each platform has its own features and other things that it does with the process. It is also worth noting that this is not a native git feature, but one that platforms like GitLab, GitHub and BitBucket offer to streamline the workflow.
 
-Copy and paste that URL into your browser and follow the process to submit a pull request. You should make sure that you are requesting that this branch be merged into the the `master` branch on the maintainer's repository. If you followed the forking steps above, this should happen automatically, because GitLab assumes that since you are a downstream contributor, you will want your changes merged upstream to the maintainer's repository. 
+Copy and paste that URL into your browser and follow the process to submit a pull request. You should make sure that you are requesting that this branch be merged into the the `master` branch on the maintainer's repository. If you followed the forking steps above, this should happen automatically because GitLab assumes that since you are a downstream contributor, you will want your changes merged upstream to the maintainer's repository. 
 
 It is helpful to give the Merge Request a goot title and to add a description if more context or clarification is needed.
 
@@ -193,11 +193,11 @@ Once you submit the form, you will be redirected to the newly created Merge Requ
 
 Note that the merge request is part of the maintainer's project, but that anyone can participate in the discussion on this page,
 
-Trying writing a few comment in the discussion section.
+Trying writing a few comments in the discussion section.
 
 ## MAINTAINER: Review the Merge Request
 
-Go to the "Changes" section. You will see a diff of the contributor's changes. Make a comment in this diff by hovering the last line in the diff, and clicking the little speach bubble that appears. Add the comment, "This looks good, but I prefer the greeting 'aloha'. Please update."
+Go to the "Changes" section. You will see a diff of the contributor's changes. Make a comment in this diff by hovering over the last line in the diff, and clicking the little speech bubble that appears. Add the comment, "This looks good, but I prefer the greeting 'aloha'. Please update."
 
 ## CONTRIBUTOR: Respond to the review and make the requested change
 
@@ -244,7 +244,7 @@ See how just pushing to the branch updated the Merge Request. GitLab sees the ch
 
 ## MAINTAINER: Merge the request
 
-Click the grean "Merge" button on the Merge Request page. The `master` branch in the maintainer's GitLab repository will now include the two commits that the contributor made
+Click the green "Merge" button on the Merge Request page. The `master` branch in the maintainer's GitLab repository will now include the two commits that the contributor made
 
 Update your local repository. Since you're still on your `master` branch, you don't need to make any changes before running this command.
 
@@ -296,10 +296,10 @@ $ git branch -d add-greeting
 Deleted branch add-greeting (was c07ffa7).
 ```
 
-That command will remove the local repository. There are ways to remove a remote branch with the command line, but they a re very non-intuitive, it's easiest and best to use the web interface to remove those if you can. (You may have noticed the GitLab Merge Request had a checkbox to remove the branch when the request was merged, this is very handy.)
+That command will remove the local repository. There are ways to remove a remote branch with the command line, but they are very non-intuitive. It's easiest and best to use the web interface to remove those if you can. (You may have noticed the GitLab Merge Request had a checkbox to remove the branch when the request was merged, this is very handy.)
 
 ## BOTH: Wrap up
 
-Now that the contributor's `add-greeting` branch has been merge and deleted, we're back to a state, in terms of branches, that is the same as when we started.
+Now that the contributor's `add-greeting` branch has been merged and deleted, we're back to a state, in terms of branches, that is the same as when we started.
 
-This may seem like a lot of work, but this workflow is very powerful and it can be useful to follow for even small changes especially if collaborators are working asyncronously and on my projects at once. 
+This may seem like a lot of work, but this workflow is very powerful and it can be useful to follow for even small changes especially if collaborators are working asynchronously and on many projects at once. 

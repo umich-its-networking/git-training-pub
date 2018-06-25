@@ -6,8 +6,8 @@ layout: page
 ## Create a project in GitLab
   - Use the project creation form: [{{ site.gitlaburl }}projects/new]({{ site.gitlaburl }}projects/new).
   - Call the project `basics`
-  - For this exercise, create it under your own username, not any group that you may have access to (not everyone will have access to groups).
-  - Set the Visibility Level to "Public".
+  - For this exercise, create it under your own username, not any group that you may have access to (not everyone will have access to groups)
+  - Set the Visibility Level to "Public"
 
 ## Clone the repo
 
@@ -19,7 +19,7 @@ Cloning into 'basics'...
 warning: You appear to have cloned an empty repository.
 ```
 
-This warning is OK. Well fix that in the next step.
+This warning is OK. We'll fix that in the next step.
 
 Change to the new directory created in the previous step. And note that the directory is empty.
 
@@ -36,7 +36,7 @@ origin    git@{{ site.gitlabhost }}:[username]/basics.git (fetch)
 origin    git@{{ site.gitlabhost }}:[username]/basics.git (push)
 ```
 
-There are usually two URLs listed for each remote because you can configure fetch and push operations to use different URLS. It is rare that you'll need to do this, just remember that you'll see two URLs for each remote when you use this command.
+There are usually two URLs listed for each remote because you can configure fetch and push operations to use different URLS. It is rare that you'll need to do this; just remember that you'll see two URLs for each remote when you use this command.
 
 ## Add a README file
 
@@ -89,7 +89,7 @@ To {{ site.gitlabhost }}:[username]/basics.git
  * [new branch]      master -﹥ master
 ```
 
-Now go to the web interface for your repository and note that there's a repository now and that your `README.md` is part of it. Also note that GitLab displays your `README.md` file, rendered as HTML, below the file listing for the repository.
+Now go to the web interface for your repository and note that there's now a repository there and that your `README.md` is part of it. Also note that GitLab displays your `README.md` file, rendered as HTML, below the file listing for the repository.
 
 ## Adding and Committing in one step
 
@@ -145,7 +145,7 @@ Now add and commit the change with one step.
 $ git commit -a
 ```
 
-Note that since we didn't sepecify the commit message on the command, git will drop you into the text editor (specified in your `$EDITOR`) to compose the message. It helpfully add text to the temp document it creates that looks like this:
+Note that since we didn't sepecify the commit message on the command, git will drop you into the text editor (specified in your `$EDITOR`) to compose the message. It helpfully adds text to the temp document it creates that looks like this:
 
 ```
 
