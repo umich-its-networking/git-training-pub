@@ -68,7 +68,7 @@ Changes to be committed:
       new file:   README.md
 ```
 
-Create a commit
+Create a commit.
 
 ```terminal
 $ git commit -m "Add documentation"
@@ -89,7 +89,7 @@ To {{ site.gitlabhost }}:[username]/basics.git
  * [new branch]      master -﹥ master
 ```
 
-Now go to the web interface for your repository and note that there's a repository there now and that your `README.md` is there. Also note that GitLab displays your `README.md` file, rendered as HTML, below the file listing for the repository.
+Now go to the web interface for your repository and note that there's a repository now and that your `README.md` is part of it. Also note that GitLab displays your `README.md` file, rendered as HTML, below the file listing for the repository.
 
 ## Adding and Committing in one step
 
@@ -135,8 +135,8 @@ index 2995f2c..ac3babd 100644
  ﹟ Git Basics
 
   We're reviewing git!
-  +
-  +Here's new line!
+ +
+ +Here's new line!
 ```
 
 Now add and commit the change with one step.
@@ -145,7 +145,7 @@ Now add and commit the change with one step.
 $ git commit -a
 ```
 
-Note that since we didn't sepecify the commit message on the command, git will drop you into your editor to compose the message. It helpfully add text to the temp document it creates that looks like this:
+Note that since we didn't sepecify the commit message on the command, git will drop you into the text editor (specified in your `$EDITOR`) to compose the message. It helpfully add text to the temp document it creates that looks like this:
 
 ```
 
@@ -162,7 +162,17 @@ Note that since we didn't sepecify the commit message on the command, git will d
 
 Just add your commit message on the first line, then save file and quit your editor. Git will ignore anything in this file that starts with a `#` and use the rest for the commit message. It will then remove the temp file.
 
-Add a commit message, like `Added a line to the documentation` to the top of the file, save and quit.
+Add a commit message, like `Add detail to documentation` to the top of the file, save and quit.
+
+It's important to get into the habit of writing good, succinct commit messages. This blog post: [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/) (which is worth reading), lists seven rules of a great Git commit message:
+
+1. Separate subject from body with a blank line
+2. Limit the subject line to 50 characters
+3. Capitalize the subject line
+4. Do not end the subject line with a period
+5. Use the imperative mood in the subject line
+6. Wrap the body at 72 characters
+7. Use the body to explain what and why vs. how [if necessary]
 
 ## Pushing, again
 
