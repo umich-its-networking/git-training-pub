@@ -31,12 +31,12 @@ culpa qui officia deserunt mollit anim id est laborum.
 Add, commit, and push the commit.
 
 ```terminal
-$ git add lorem.txt
-$ git ci -a -m 'Add lorem ipsum text'
+$ git add lorem.txt ipsum.txt
+$ git commit -a -m 'Add lorem ipsum text'
 [master 505e0ee] Add lorem ipsum text
  1 file changed, 6 insertions(+)
  create mode 100644 lorem.txt
-$ git st
+$ git status
 On branch master
 Your branch is ahead of 'origin/master' by 1 commit.
   (use "git push" to publish your local commits)
@@ -128,7 +128,7 @@ culpa qui officia deserunt mollit anim id est laborum.
 Commit the change.
 
 ```terminal
-$ git ci -a -m 'Add to bottom'
+$ git commit -a -m 'Add to bottom'
 [master 99b1e97] Add to bottom
  1 file changed, 2 insertions(+)
 ```
@@ -216,7 +216,7 @@ def
 Commit the change.
 
 ```terminal
-$ git ci -a -m 'Add "def" to bottom'
+$ git commit -a -m 'Add "def" to bottom'
 [master a5e3761] Add "def" to bottom
  1 file changed, 2 insertions(+)
 ```
