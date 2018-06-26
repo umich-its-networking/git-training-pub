@@ -32,7 +32,7 @@ Add, commit, and push the commit.
 
 ```terminal
 $ git add lorem.txt ipsum.txt
-$ git commit -a -m 'Add lorem ipsum text'
+$ git commit -m 'Add lorem ipsum text'
 [master 505e0ee] Add lorem ipsum text
  2 files changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 ipsum.txt
