@@ -17,4 +17,5 @@ git version 2.17.1
 - Exercise: [Git Basics]({{ "ex-git-basics" | relative_url }})
 - Advanced Workflows
   - Exercise: [Branching and Merging]({{ "ex-branching-merging" | relative_url }})
+  - Exercise: [Handling Merge Conflicts]({{ "ex-merge-conflict" | relative_url }})
 
