@@ -34,7 +34,8 @@ Add, commit, and push the commit.
 $ git add lorem.txt ipsum.txt
 $ git commit -a -m 'Add lorem ipsum text'
 [master 505e0ee] Add lorem ipsum text
- 1 file changed, 6 insertions(+)
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 ipsum.txt
  create mode 100644 lorem.txt
 $ git status
 On branch master
