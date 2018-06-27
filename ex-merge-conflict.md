@@ -13,7 +13,7 @@ Each of the sections below is labeled for the player who should perform the step
 
 ## BOTH: Configure repositories
 
-Reuse the repositories from the [Branching and Merging exercise]({{ "ex-banching-merging" | relative_url }}) (or configure repositories on GitLab and locally as described in the first steps of that exercise).
+Reuse the repositories from the [Branching and Merging exercise]({{ "ex-branching-merging" | relative_url }}) (or configure repositories on GitLab and locally as described in the first steps of that exercise).
 
 ## MAINTAINER: Add a new file
 
