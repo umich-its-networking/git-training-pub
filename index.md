@@ -22,6 +22,7 @@ git version 2.20.1
 
 ## Overview
 - Exercise: [Configure Git]({{ "ex-configure" | relative_url }})
+- Exercise: [Setup Shell Prompt]({{ "ex-setup-shell-prompt" | relative_url }}) (optional)
 - Exercise: [Git Basics]({{ "ex-git-basics" | relative_url }})
 - Advanced Workflows
   - Exercise: [Branching and Merging]({{ "ex-branching-merging" | relative_url }})
