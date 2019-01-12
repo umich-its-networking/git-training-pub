@@ -25,7 +25,7 @@ Using SSH keys is usually the best way to interact remote repositories from the 
 Once you've done that, you can test to make sure it worked with the -T flag on the SSH command.
 
 ```terminal
-$ ssh -T git@gitlab.aws.vdc.it.umich.edu
+$ ssh -T git@{{ site.gitlabhost }}
 Welcome to GitLab, [Your Name]!
 ```
 
