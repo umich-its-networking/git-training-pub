@@ -1,4 +1,4 @@
-# git-training-2018-06-citp
+# git-training-2019-01-citp
 
 ```
 jekyll new --force .
