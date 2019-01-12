@@ -7,7 +7,7 @@ layout: page
   - A relatively modern version of git on your development machine
 ```terminal
 $ git --version
-git version 2.17.1
+git version 2.20.1
 ```
   - An account on a GitLab server ([{{ site.gitlaburl }}]({{ site.gitlaburl }}))
   - A partner for the advanced exercises
