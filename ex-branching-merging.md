@@ -43,6 +43,12 @@ remote: Total 3 (delta 0), reused 0 (delta 0)
 Receiving objects: 100% (3/3), done.
 ```
 
+Change to the directory of the cloned repository.
+
+```terminal
+$ cd advanced
+```
+
 Each player should have a clone of the repository now, both should contain the `README.md` file created by the maintainer in the step above.
 
 ## MAINTAINER: Make a change to your repository
