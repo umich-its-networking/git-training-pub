@@ -36,7 +36,7 @@ origin    git@{{ site.gitlabhost }}:[username]/basics.git (fetch)
 origin    git@{{ site.gitlabhost }}:[username]/basics.git (push)
 ```
 
-There are usually two URLs listed for each remote because you can configure fetch and push operations to use different URLS. It is rare that you'll need to do this; just remember that you'll see two URLs for each remote when you use this command.
+There are usually two URLs listed for each remote because you can configure fetch and push operations to use different URLS. It is rare that you'll need to do this; just remember that you'll see two URLs for each remote when you use the `-v` flag with this command.
 
 ## Add a README file
 
