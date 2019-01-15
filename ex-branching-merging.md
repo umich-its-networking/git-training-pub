@@ -15,17 +15,17 @@ Each of the sections below is labeled for the player who should perform the step
 ## MAINTAINER: Create a repository
 
 Create a project in GitLab
-  - Use the project creation form: [{{ site.gitlaburl }}projects/new]({{ site.gitlaburl }}projects/new)
-  - Call the project `advanced`
-  - For this exercise, create it under your own username, not any group that you may have access to (not everyone will have access to groups)
-  - Set the Visibility Level to "Public"
-
-Add a `README.md` file to the repository. You can do this with the GitLab interface (there's an `Add Readme` button) or by following the steps in the [Git Basics]({{ "ex-git-basics" | relative_url }}) exercise. Use the following content:
+  - **Use the project creation form: [{{ site.gitlaburl }}projects/new]({{ site.gitlaburl }}projects/new)**
+      - Call the project `advanced`
+      - For this exercise, create it under your own username, not any group that you may have access to (not everyone will have access to groups)
+      - Set the Visibility Level to "Public"
 
 Invite the contributor to your project.
   - Settings &rarr; Members
   - Add contributor's username under "Select members to invite"
   - Give them the Developer role under "Choose a role permission"
+
+Add a `README.md` file to the repository. You can do this with the GitLab interface (there's an `Add Readme` button) or by following the steps in the [Git Basics]({{ "ex-git-basics" | relative_url }}) exercise. Use the following content:
 
 ```
 # Git Advanced Workflow
