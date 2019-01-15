@@ -45,7 +45,7 @@ $ git commit -m 'Add lorem text'
 
 ## Create another branch
 
-Use the `checkpout` command to create a new local branch that matches `master`.
+Use the `checkout` command to create a new local branch that matches `master`.
 
 ```terminal
 $ git checkout -b auto
