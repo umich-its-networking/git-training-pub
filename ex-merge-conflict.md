@@ -1,23 +1,28 @@
 ---
-title: Handling Merge Conflicts
+title: Merge Conflict
 layout: page
 ---
 
-This exercise is set up for two people to do together. Find a partner, or proceed alone and play both roles.
+This exercise illustrates how git will help you handle merging two branches that have diverged, if the changed sections of code overlap.
 
-The players:
-  - **Maintainer**
-  - **Contributor**
+## Setup
 
-Each of the sections below is labeled for the player who should perform the steps in that section.
+You can use the repository from the [Git Basics]({{ "ex-git-basics" | relative_url }}) exercise (or configure repositories on GitLab and locally as described in the first steps of that exercise).
 
-## BOTH: Configure repositories
+Or you can create a new, empty resposity.
 
-Reuse the repositories from the [Branching and Merging exercise]({{ "ex-branching-merging" | relative_url }}) (or configure repositories on GitLab and locally as described in the first steps of that exercise).
+```terminal
+$ mkdir ex-merge-conflict
+$ cd ex-merge-conflict/
+$ git init
+Initialized empty Git repository in [home]/ex-merge-conflict/.git/
+```
 
-## MAINTAINER: Add a new file
+The steps in this exercise won't push to a remote repository, so there's no need to set up a project in GitLab.
 
-Create **two new files** called `lorem.txt` and `ipsum.txt` both with these contents:
+## Add a new file
+
+Create a new file called `ipsum.txt` with these contents:
 
 ```
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -28,61 +33,31 @@ fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 ```
 
-Add, commit, and push the commit.
+Add, commit to `master`.
 
 ```terminal
-$ git add lorem.txt ipsum.txt
-$ git commit -m 'Add lorem ipsum text'
-[master 505e0ee] Add lorem ipsum text
- 2 files changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 ipsum.txt
- create mode 100644 lorem.txt
-$ git status
-On branch master
-Your branch is ahead of 'origin/master' by 1 commit.
-  (use "git push" to publish your local commits)
-
-nothing to commit, working tree clean
-$ git push
-Enumerating objects: 4, done.
-Counting objects: 100% (4/4), done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 552 bytes | 552.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To {{ site.gitlabhost }}:[maintainer]/advanced.git
-   2cfabd4..505e0ee  master -﹥ master
-```
-
-## CONTRIBUTOR: Fetch and merge
-
-Fetch and merge the maintainer's changes.
-
-```terminal
-$ git fetch upstream
-remote: Counting objects: 3, done.
-remote: Compressing objects: 100% (3/3), done.
-remote: Total 3 (delta 0), reused 0 (delta 0)
-Unpacking objects: 100% (3/3), done.
-From {{ site.gitlabhost }}:[maintainer]/advanced
-   2cfabd4..505e0ee  master     -﹥ upstream/master
-$ git checkout master
-Already on 'master'
-Your branch is up to date with 'origin/master'.
-$ git merge upstream/master
-Updating 2cfabd4..505e0ee
-Fast-forward
- lorem.txt | 6 ++++++
+$ git add ipsum.txt
+$ git commit -m 'Add lorem text'
+[master (root-commit) e4ec3cb] Add lorem text
  1 file changed, 6 insertions(+)
- create mode 100644 lorem.txt
+  create mode 100644 ipsum.txt
 ```
 
-## MAINTAINER: Make and commit a change at the top ot the file
+## Create another branch
 
-Edit `lorem.txt` to add a line at the top of the file:
+Use the `checkout` command to create a new local branch that matches `master`.
+
+```terminal
+$ git checkout -b add-text-above
+Switched to a new branch 'add-text-above'
+```
+
+## Make and commit a change at the top ot the file
+
+Edit `ipsum.txt` to add a line at the top of the file:
 
 ```
-123
+abc
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -92,162 +67,62 @@ fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
 ```
 
-Commit and push.
+Commit these changes.
 
 ```terminal
 $ git commit -a -m 'Add to top'
-[master 553a218] Add to top
+[add-text-above 2a7579a] Add to top
  1 file changed, 2 insertions(+)
-$ git push
-Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (6/6), done.
-Writing objects: 100% (6/6), 812 bytes | 812.00 KiB/s, done.
-Total 6 (delta 1), reused 0 (delta 0)
-To gitlab.aws.vdc.it.umich.edu:its-inf-net/advanced.git
-   2cfabd4..553a218  master -﹥ master
 ```
 
-## CONTRIBUTOR: Make a change to bottom of the file, then sync
+## Make a change on the master branch
 
-BEFORE YOU SYNC...
+Checkout your `master` branch.
 
-Change `lorem.txt` to add a line at the end of the file.
+```terminal
+$ git checkout master
+Switched to branch 'master'
+```
+
+Note that `ipsum.txt` doesn't have the changes you just commited to the `add-text-above` branch.
+
+Change `ipsum.txt` to add a line at the end of the file.
 
 ```
+xyz
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
-
-456
 ```
 
 Commit the change.
 
 ```terminal
-$ git commit -a -m 'Add to bottom'
-[master 99b1e97] Add to bottom
+$ git commit -a -m 'Add xyz to top'
+[master db13884] Add xyz to top
  1 file changed, 2 insertions(+)
 ```
 
-Now sync with the maintainer's repository.
+## Merge the add-text-above branch into master
+
+Merge `add-text-above` into `master`.
 
 ```terminal
-$ git fetch upstream
-remote: Counting objects: 3, done.
-remote: Compressing objects: 100% (3/3), done.
-remote: Total 3 (delta 1), reused 0 (delta 0)
-Unpacking objects: 100% (3/3), done.
-From {{ site.gitlabhost }}:[maintainer]/advanced
-   505e0ee..31dd55c  master     -﹥ upstream/master
-$ git merge upstream/master
-Auto-merging lorem.txt
-Merge made by the 'recursive' strategy.
- lorem.txt | 2 ++
- 1 file changed, 2 insertions(+)
-```
-
-The `git merge` command will drop you into your `$EDITOR` to edit a commit message for the merge. It will populate the temp file like this:
-
-```
-Merge remote-tracking branch 'upstream/master'
-
-# Please enter a commit message to explain why this merge is necessary,
-# especially if it merges an updated upstream into a topic branch.
-#
-# Lines starting with '#' will be ignored, and an empty message aborts
-# the commit.
-```
-
-It is usually fine to just use the default message.
-
-Note that the merge says, "Auto-merging lorem.txt". It can't do a fast-forward merge the branches have diverged. But since the diffs didn't overlap, it was able to do an auto-merge.
-
-## MAINTAINER: Change ipsum.txt
-
-Make a change to the bottom of `ipsum.txt`, so that it now looks like this:
-
-```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-abc
-```
-
-Commit and push.
-
-```terminal
-$ git commit -a -m 'Add to bottom of ipsum'
-[master 5a536b9] Add to bottom of ipsum
- 1 file changed, 2 insertions(+)
-$ git push
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 344 bytes | 344.00 KiB/s, done.
-Total 3 (delta 1), reused 0 (delta 0)
-To {{ site.gitlabhost }}:[maintainer]/advanced.git
-   82f63e8..5a536b9  master -﹥ master
-```
-
-## CONTRIBUTOR: Make a change to the bottom of ipsum
-
-Add a line to the bottom of `ipsum.txt` so it looks like this:
-
-```
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
-def
-```
-
-Commit the change.
-
-```terminal
-$ git commit -a -m 'Add "def" to bottom'
-[master a5e3761] Add "def" to bottom
- 1 file changed, 2 insertions(+)
-```
-
-Sync with maintainer's upstream.
-
-```terminal
-$ git fetch upstream
-remote: Counting objects: 3, done.
-remote: Compressing objects: 100% (3/3), done.
-remote: Total 3 (delta 1), reused 0 (delta 0)
-Unpacking objects: 100% (3/3), done.
-From {{ site.gitlabhost }}:[maintainer]/advanced
-   82f63e8..5a536b9  master     -﹥ upstream/master
-$ git merge upstream/master
+$ git merge add-text-above
 Auto-merging ipsum.txt
 CONFLICT (content): Merge conflict in ipsum.txt
-Automatic merge failed︔ fix conflicts and then commit the result.
+Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-Git couldn't auto-merge this time because the changes overlap in `ipsum.txt`.
-
-Use `git status` to see what's going on.
+Git couldn't automatically merge our two branches because the changes we made in each branch overlapped with eachother. So we need to resolve the conflict manually. Let's look at the current status of the working copy.
 
 ```terminal
 $ git status
 On branch master
-Your branch is ahead of 'origin/master' by 1 commit.
-  (use "git push" to publish your local commits)
-
 You have unmerged paths.
   (fix conflicts and run "git commit")
   (use "git merge --abort" to abort the merge)
@@ -255,32 +130,114 @@ You have unmerged paths.
 Unmerged paths:
   (use "git add <file﹥..." to mark resolution)
 
-	both modified:   ipsum.txt
+        both modified:   ipsum.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
-Open `ipsum.txt` in your editor. The contents should look like this:
+
+This message gives us a lot of information about the fact that we're in the middle of resolving a merge conflict. Note in the "Unmerged paths" section `ipsum.txt` is listed as "both modified".
+
+When the repository is in this state, git modifies the flies with conflicts so that you can handle the conflicts in your editor. Try editing `ipsum.txt`, those contents should look like this:
 
 ```
+<<<<<<< HEAD
+xzy
+=======
+abc
+>>>>>>> add-text-above
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
-
-<<<<<<< HEAD
-def
-=======
-abc
->>>>>>> upstream/master
 ```
 
-Git has modified the file to show changes from both branches. You'll have to clean things up and delete the lines that start with `<<<<<<<`, `=======`, and `>>>>>>>`.
+Git has modified the file to show changes from both branches. You'll have to clean things up and delete the lines that start with `<<<<<<<`, `=======`, and `>>>>>>>`. This is showing that the text "xyz" is what's in the current branch (indicated by "HEAD"), and the text "abc" is what's in the `add-text-above` branch.
 
-Once `ipsum.txt` is correct, save it, and commit to complete the merge.
+To resolve the conflict, edit the file look like you want it to. For actual code this will require a judgement call: do you want to keep both changes? Just keep one? If so, which one? Should it actually be something totally different in order to make the two changes work together?
+
+For this example, just pick "abc" and delete the other merge helper text so that `ipsum.txt` looks like this:
+
+```
+abc
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.
+```
+
+Stage `ipsum.txt` and check the status.
 
 ```terminal
-$ git commit -a
-[master 9ef5a2f] Merge remote-tracking branch 'upstream/master'
+$ git add ipsum.txt 
+$ git st
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+        modified:   ipsum.txt
+
 ```
+
+Note that it tells you that you're still in a merge, and how to complete the process.
+
+Run git commit without a commit message
+
+```terminal
+$ git commit
+```
+
+This will open your $EDITOR, it will be populated with text like this:
+
+
+```
+Merge branch 'add-text-above'
+
+# Conflicts:
+#       ipsum.txt
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#       .git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#       modified:   ipsum.txt
+#
+```
+
+It is usually fine to just use the default message. Note that the comments in this text give you a lot of information about the merge.
+
+Once you save the file and exit your editor, the git output will continue...
+
+```terminal
+[master 52a2d9f] Merge branch 'add-text-above'
+```
+
+The merge is now completed.
+
+```terminal
+$ git status
+On branch master
+nothing to commit, working tree clean
+```
+
+## Summary
+
+If you're confused about what state you're in during a merge, use the `git status` command. It will usually give you helpful information and suggest commands to move the process along.
+
+Bear in mind that in addition to the direct conflict created by two branches trying to change the same part of the code, you may also need to consider the logical changes that each branch is making to the code and how to resolve those as well.

@@ -28,5 +28,4 @@ git version 2.20.1
   - Exercise [Fork-based Collaborative Branching and Merging]({{ "ex-branching-merging-fork-based" | relative_url }}) (optional)
 - Advanced Merging
   - Exercise: [Auto Merge]({{ "ex-auto-merge" | relative_url }})
-  - Exercise: [Local Merge Conflict]({{ "ex-local-merge-conflict" | relative_url }})
-  - Exercise: [Web-based  Merge Conflicts]({{ "ex-web-based-merge-conflict" | relative_url }})
+  - Exercise: [Merge Conflict]({{ "ex-merge-conflict" | relative_url }})
