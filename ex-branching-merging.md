@@ -22,22 +22,21 @@ Create a project in GitLab
 
 Add a `README.md` file to the repository. You can do this with the GitLab interface (there's an `Add Readme` button) or by following the steps in the [Git Basics]({{ "ex-git-basics" | relative_url }}) exercise. Use the following content:
 
+Invite the contributor to your project.
+  - Settings &rarr; Members
+  - Add contributor's username under "Select members to invite"
+  - Give them the Developer role under "Choose a role permission"
+
 ```
 # Git Advanced Workflow
 
 Hello World
 ```
 
-## CONTRIBUTOR: Fork the repository
-
-Fork the maintainer's repository with the GitLab interface. See the [How to fork a project]({{ site.gitlaburl }}help/gitlab-basics/fork-project.md) documentation. After doing this you should have you own copy of the reposity at {{ site.gitlaburl }}[username]/advanced.git
-
-## BOTH: Clone your respective repository
-
-The maintainer should clone his/her repsoitory, and the contributor should clone the respitory from his/her fork.
+## BOTH: Clone the maintainer's repository
 
 ```terminal
-$ git clone git@{{ site.gitlabhost }}:[username]/advanced.git
+$ git clone git@{{ site.gitlabhost }}:maintainer/advanced.git
 Cloning into 'advanced'...
 remote: Counting objects: 3, done.
 remote: Total 3 (delta 0), reused 0 (delta 0)
@@ -45,32 +44,6 @@ Receiving objects: 100% (3/3), done.
 ```
 
 Each player should have a clone of the repository now, both should contain the `README.md` file created by the maintainer in the step above.
-
-## CONTRIBUTOR: Add a remote for the Maintainer's repository
-
-Add a remote to your local working copy that points to the maintainer's GitLab repository.
-
-```terminal
-$ git remote add upstream git@{{ site.gitlabhost }}:[maintainer]/advanced.git
-```
-
-You now have to remotes configured.
-
-```terminal
-$ git remote -v
-origin    git@{{ site.gitlabhost }}:[maintainer]/advanced.git (fetch)
-origin    git@{{ site.gitlabhost }}:[maintainer]/advanced.git (push)
-upstream    git@{{ site.gitlabhost }}:[contributor]/advanced.git (fetch)
-upstream    git@{{ site.gitlabhost }}:[contributor]/advanced.git (push)
-```
-
-Use `git fetch` to update your local repository's history of the new remote.
-
-```terminal
-$ git fetch upstream
-From {{ site.gitlabhost }}:[username]/advanced
- * [new branch]      master     -﹥ upstream/master
-```
 
 ## MAINTAINER: Make a change to your repository
 
@@ -113,13 +86,12 @@ To {{ site.gitlabhost }}:[username]/advanced.git
 In order to get the maintainer's changes into your repository, you need to fetch them from their remote and merge them into your `master` branch.
 
 ```terminal
-$ git fetch upstream
+$ git pull
 remote: Counting objects: 3, done.
 remote: Total 3 (delta 0), reused 0 (delta 0)
 Unpacking objects: 100% (3/3), done.
-From {{ site.gitlabhost }}:[username]/advanced
-   3e99c8c..50dad14  master     -﹥ upstream/master
-$ git merge upstream/master
+From {{ site.gitlabhost }}:maintainer/advanced
+   3e99c8c..50dad14  master     -﹥ origin/master
 Updating 3e99c8c..50dad14
 Fast-forward
  README.md | 2 +-
@@ -130,8 +102,6 @@ $ cat README.md
 Hello World
 Hello [Contributor]
 ```
-
-It is a good practice to stay in sync with upstream remotes.
 
 ## CONTRIBUTOR: Create a branch with a change, and push
 
@@ -172,9 +142,9 @@ Writing objects: 100% (9/9), 780 bytes | 390.00 KiB/s, done.
 Total 9 (delta 1), reused 0 (delta 0)
 remote:
 remote: To create a merge request for add-greeting, visit:
-remote:   {{ site.gitlaburl }}contributor/advanced/merge_requests/new?merge_request%5Bsource_branch%5D=add-greeting
+remote:   {{ site.gitlaburl }}maintainer/advanced/merge_requests/new?merge_request%5Bsource_branch%5D=add-greeting
 remote:
-To {{ site.gitlabhost }}:its-inf-net/advanced.git
+To {{ site.gitlabhost }}:maintainer/advanced.git
  * [new branch]      add-greeting -﹥ add-greeting
 Branch 'add-greeting' set up to track remote branch 'add-greeting' from 'origin'.
 ```
@@ -183,21 +153,19 @@ Those lines in the output that begin with "remote: " are interesting. They are m
 
 *A note on terminology:* GitLab calls this a "Merge Request"; GitHub calls its version of this proces a "Pull Request". They are bascially the same thing, but each platform has its own features and other things that it does with the process. It is also worth noting that this is not a native git feature, but one that platforms like GitLab, GitHub and BitBucket offer to streamline the workflow.
 
-Copy and paste that URL into your browser and follow the process to submit a pull request. You should make sure that you are requesting that this branch be merged into the the `master` branch on the maintainer's repository. If you followed the forking steps above, this should happen automatically because GitLab assumes that since you are a downstream contributor, you will want your changes merged upstream to the maintainer's repository. 
+Copy and paste that URL into your browser and follow the process to submit a pull request. 
 
-It is helpful to give the Merge Request a goot title and to add a description if more context or clarification is needed.
+It is helpful to give the Merge Request a good title and to add a description if more context or clarification is needed.
 
 Once you submit the form, you will be redirected to the newly created Merge Request.
 
 ## BOTH: Take a look at the Merge Request page
 
-Note that the merge request is part of the maintainer's project, but that anyone can participate in the discussion on this page,
-
 Trying writing a few comments in the discussion section.
 
 ## MAINTAINER: Review the Merge Request
 
-Go to the "Changes" section. You will see a diff of the contributor's changes. Make a comment in this diff by hovering over the last line in the diff, and clicking the little speech bubble that appears. Add the comment, "This looks good, but I prefer the greeting 'aloha'. Please update."
+Go to the "Changes" section. You will see a diff of the contributor's changes. Make a comment in this diff by hovering over the last line in the diff, and clicking the little speech bubble that appears. Add the comment, "This looks good, but I prefer the greeting 'aloha'."
 
 ## CONTRIBUTOR: Respond to the review and make the requested change
 
@@ -215,7 +183,7 @@ Hello [Contributor]
 Aloha [Maintainer]
 ```
 
-Commit the change to the `add-greeting` branch, and push to your remote. (You should still have `add-greeting` checked out locally, so you shouldn't have to make any changes before running these commands.)
+Commit the change to the `add-greeting` branch, and push. (You should still have `add-greeting` checked out locally, so you shouldn't have to make any changes before running these commands.)
 
 ```terminal
 $ git commit -a -m 'Fix greeting'
@@ -230,9 +198,9 @@ Writing objects: 100% (3/3), 315 bytes | 315.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
 remote:
 remote: View merge request for add-greeting:
-remote:   {{ site.gitlaburl }}[username]/advanced/merge_requests/1
+remote:   {{ site.gitlaburl }}maintainer/advanced/merge_requests/1
 remote:
-To {{ site.gitlabhost }}:its-inf-net/advanced.git
+To {{ site.gitlabhost }}:maintainer/advanced.git
    355165e..c07ffa7  add-greeting -﹥ add-greeting
 ```
 
@@ -254,7 +222,7 @@ remote: Counting objects: 7, done.
 remote: Compressing objects: 100% (5/5), done.
 remote: Total 7 (delta 1), reused 0 (delta 0)
 Unpacking objects: 100% (7/7), done.
-From {{ site.gitlabhost }}:[username]/advanced
+From {{ site.gitlabhost }}:maintainer/advanced
    ebc61d8..2cfabd4  master     -﹥ origin/master
 Updating ebc61d8..2cfabd4
 Fast-forward
@@ -264,29 +232,21 @@ Fast-forward
 
 ## CONTRIBUTOR: Sync your local repository
 
-These commands will checkout the local `master` branch and sync it with the maintainer's `master` branch, then push those changes to your remote.
+These commands will checkout the local `master` branch and sync it with the maintainer's `master` branch.
 
 ```terminal
 $ git checkout master
 Switched to branch 'master'
-$ git fetch upstream
+$ git pull
 remote: Counting objects: 1, done.
 remote: Total 1 (delta 0), reused 0 (delta 0)
 Unpacking objects: 100% (1/1), done.
-From {{ site.gitlabhost }}:[username]/advanced
-   ebc61d8..2cfabd4  master     -﹥ upstream/master
-$ git merge upstream/master
+From {{ site.gitlabhost }}:maintainer/advanced
+   ebc61d8..2cfabd4  master     -﹥ origin/master
 Updating ebc61d8..2cfabd4
 Fast-forward
  README.md | 1 +
  1 file changed, 1 insertion(+)
-$ git push origin master
-Enumerating objects: 1, done.
-Counting objects: 100% (1/1), done.
-Writing objects: 100% (1/1), 280 bytes | 280.00 KiB/s, done.
-Total 1 (delta 0), reused 0 (delta 0)
-To {{ site.gitlabhost }}:its-inf-net/advanced.git
-   3e99c8c..2cfabd4  master -﹥ master
 ```
 
 It is a good practice to remove the `add-greeting` branch from the local and remote repositories. Remember that branching is cheap and easy with git, so there's no reason to keep them around or reuse them.
@@ -302,4 +262,4 @@ That command will remove the local repository. There are ways to remove a remote
 
 Now that the contributor's `add-greeting` branch has been merged and deleted, we're back to a state, in terms of branches, that is the same as when we started.
 
-This may seem like a lot of work, but this workflow is very powerful and it can be useful to follow for even small changes especially if collaborators are working asynchronously and on many projects at once. 
+This workflow is very powerful and it can be useful to follow for even small changes especially if collaborators are working asynchronously and on many projects at once. 
