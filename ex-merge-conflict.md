@@ -86,7 +86,7 @@ Switched to branch 'master'
 
 Note that `ipsum.txt` doesn't have the changes you just commited to the `add-text-above` branch.
 
-Change `ipsum.txt` to add a line at the end of the file.
+Change `ipsum.txt` to add a line at the top of the file.
 
 ```
 xyz
@@ -175,7 +175,7 @@ Stage `ipsum.txt` and check the status.
 
 ```terminal
 $ git add ipsum.txt 
-$ git st
+$ git status
 On branch master
 All conflicts fixed but you are still merging.
   (use "git commit" to conclude merge)
