@@ -36,7 +36,7 @@ Hello World
 ## BOTH: Clone the maintainer's repository
 
 ```terminal
-$ git clone git@{{ site.gitlabhost }}:maintainer/advanced.git
+$ git clone git@{{ site.gitlabhost }}:[maintainer]/advanced.git
 Cloning into 'advanced'...
 remote: Counting objects: 3, done.
 remote: Total 3 (delta 0), reused 0 (delta 0)
@@ -90,7 +90,7 @@ $ git pull
 remote: Counting objects: 3, done.
 remote: Total 3 (delta 0), reused 0 (delta 0)
 Unpacking objects: 100% (3/3), done.
-From {{ site.gitlabhost }}:maintainer/advanced
+From {{ site.gitlabhost }}:[maintainer]/advanced
    3e99c8c..50dad14  master     -﹥ origin/master
 Updating 3e99c8c..50dad14
 Fast-forward
@@ -142,9 +142,9 @@ Writing objects: 100% (9/9), 780 bytes | 390.00 KiB/s, done.
 Total 9 (delta 1), reused 0 (delta 0)
 remote:
 remote: To create a merge request for add-greeting, visit:
-remote:   {{ site.gitlaburl }}maintainer/advanced/merge_requests/new?merge_request%5Bsource_branch%5D=add-greeting
+remote:   {{ site.gitlaburl }}[maintainer]/advanced/merge_requests/new?merge_request%5Bsource_branch%5D=add-greeting
 remote:
-To {{ site.gitlabhost }}:maintainer/advanced.git
+To {{ site.gitlabhost }}:[maintainer]/advanced.git
  * [new branch]      add-greeting -﹥ add-greeting
 Branch 'add-greeting' set up to track remote branch 'add-greeting' from 'origin'.
 ```
@@ -198,9 +198,9 @@ Writing objects: 100% (3/3), 315 bytes | 315.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
 remote:
 remote: View merge request for add-greeting:
-remote:   {{ site.gitlaburl }}maintainer/advanced/merge_requests/1
+remote:   {{ site.gitlaburl }}[maintainer]/advanced/merge_requests/1
 remote:
-To {{ site.gitlabhost }}:maintainer/advanced.git
+To {{ site.gitlabhost }}:[maintainer]/advanced.git
    355165e..c07ffa7  add-greeting -﹥ add-greeting
 ```
 
@@ -222,7 +222,7 @@ remote: Counting objects: 7, done.
 remote: Compressing objects: 100% (5/5), done.
 remote: Total 7 (delta 1), reused 0 (delta 0)
 Unpacking objects: 100% (7/7), done.
-From {{ site.gitlabhost }}:maintainer/advanced
+From {{ site.gitlabhost }}:[maintainer]/advanced
    ebc61d8..2cfabd4  master     -﹥ origin/master
 Updating ebc61d8..2cfabd4
 Fast-forward
@@ -241,7 +241,7 @@ $ git pull
 remote: Counting objects: 1, done.
 remote: Total 1 (delta 0), reused 0 (delta 0)
 Unpacking objects: 100% (1/1), done.
-From {{ site.gitlabhost }}:maintainer/advanced
+From {{ site.gitlabhost }}:[maintainer]/advanced
    ebc61d8..2cfabd4  master     -﹥ origin/master
 Updating ebc61d8..2cfabd4
 Fast-forward
