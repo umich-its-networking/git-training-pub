@@ -3,9 +3,9 @@ title: Setup Shell Prompt (optional)
 layout: page
 ---
 
-Knowing the current state of your working copy makes using git much eiser. One way to do this is with the `git status` command. But you can also customize your command prompt to show you this this information in a condensed form.
+Knowing the current state of your working copy makes using git much easier. One way to do this is with the `git status` command. But you can also customize your command prompt to show you this this information in a condensed form that will update everytime the command prompt is displayed, giving you an up-to-date summary of your repositories state.
 
-There are several ways to do this. In this exercise we will use the [git-prompt.sh](https://github.com/git/git/blob/v{{ site.git.version }}/contrib/completion/git-prompt.sh) script from the git project itself.
+There are several ways to do this. In this exercise we will use the [git-prompt.sh](https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh) script from the git project itself.
 
 ## Set up git-prompt.sh
 
@@ -18,7 +18,7 @@ $ cd ~
 Downloading the git-prompt.sh script to your home directory. This command will save the file to `~/.git-prompt.sh`:
 
 ```terminal
-$ wget -O ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/v{{ site.git.version }}/contrib/completion/git-prompt.sh
+$ wget -O ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 ```
 
 Source this file to load it:

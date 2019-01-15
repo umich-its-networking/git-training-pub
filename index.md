@@ -10,7 +10,7 @@ $ git --version
 git version 2.20.1
 ```
   - An account on a GitLab server ([{{ site.gitlaburl }}]({{ site.gitlaburl }}))
-  - A partner for the advanced exercises
+  - A partner for the collaborative exercises
 
 
 ## Git Reference
