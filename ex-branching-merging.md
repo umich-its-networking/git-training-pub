@@ -77,7 +77,7 @@ Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Writing objects: 100% (3/3), 269 bytes | 269.00 KiB/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
-To {{ site.gitlabhost }}:[username]/advanced.git
+To {{ site.gitlabhost }}:[maintainer]/advanced.git
    3e99c8c..50dad14  master -﹥ master
 ```
 
