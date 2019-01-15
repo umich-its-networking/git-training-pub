@@ -21,6 +21,12 @@ Downloading the git-prompt.sh script to your home directory. This command will s
 $ wget -O ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 ```
 
+... or ... 
+
+```terminal
+$ curl -o ~/.git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+```
+
 Source this file to load it:
 
 ```terminal
