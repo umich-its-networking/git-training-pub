@@ -25,7 +25,7 @@ git version 2.20.1
 - Exercise: [Setup Shell Prompt]({{ "ex-setup-shell-prompt" | relative_url }})
 - Exercise: [Git Basics]({{ "ex-git-basics" | relative_url }})
 - Exercise: [Collaborative Branching and Merging]({{ "ex-branching-merging" | relative_url }})
-  - Exercise [Fork-based Collaborative Branching and Merging]({{ "ex-fork" | relative_url }}) (optional)
+  - Exercise [Fork-based Collaborative Branching and Merging]({{ "ex-branching-merging-fork-based" | relative_url }}) (optional)
 - Advanced Merging
   - Exercise: [Auto Merge]({{ "ex-auto-merge" | relative_url }})
   - Exercise: [Local Merge Conflict]({{ "ex-local-merge-conflict" | relative_url }})
