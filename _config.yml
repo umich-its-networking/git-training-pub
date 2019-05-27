@@ -29,8 +29,8 @@ theme: minima
 plugins:
   - jekyll-feed
 
-gitlabhost: gitlab.umich.edu
-gitlaburl: https://gitlab.umich.edu/
+gitlabhost: gitlab.com
+gitlaburl: https://gitlab.com/
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
