@@ -56,8 +56,6 @@ prompt-test $ git init
 Initialized empty Git repository in /Users/steinhof/prompt-test/.git/
 prompt-test (master ⌗) $ echo 'Hello world' > README
 prompt-test (master ⌗%) $ git add README
-prompt-test (master +) $ git commit
-Aborting commit due to empty commit message.
 prompt-test (master +) $ git commit -m 'Add README'
 [master (root-commit) d7c63a3] Add README
  1 file changed, 1 insertion(+)
@@ -71,7 +69,7 @@ prompt-test (develop *) $ git commit -a -m 'Update README'
 prompt-test (develop) $ git checkout master
 Switched to branch 'master'
 prompt-test (master) $ cd ..
-~ $ rm -r prompt-test
+~ $ rm -rf prompt-test
 ```
 
 ## Make it permanent
